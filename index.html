@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Lato link -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Inter link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+     <!-- Daisy UI and Tailwind CSS CDN -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+     <script src="https://cdn.tailwindcss.com"></script>
+ 
+     <script>
+         tailwind.config = {
+           theme: {
+             extend: {
+               colors: {
+                 clifford: '#da373d',
+                 btnPrimary: 'rgb(14, 122, 129)',
+               },
+               fontFamily: {
+             fontLato: 'Lato',
+             fontInter: 'Inter',      
+             },
+             }
+           }
+         }
+       </script>
+
+       <!-- Font Awesome -->
+       <script src="https://kit.fontawesome.com/688e7a57b2.js" crossorigin="anonymous"></script>
+</head>
+<body class="fontLato">
+    <header>
+
+        <!-- Navbar Start -->
+        <nav class="w-11/12 mx-auto sm:p-10 p-5 flex justify-between items-center">
+            <div class="flex gap-2 items-center">
+                <img src="images/logo.webp" alt="Logo of Peddy">
+                <h2 class="font-extrabold text-xl lg:text-3xl">Peddy</h2>
+            </div>
+            <div class="hidden sm:block">
+                <ul class="flex gap-4 text-gray-500">
+                    <a href="#"><li>Home</li></a>
+                    <a href="#"><li>Shop</li></a>
+                    <a href="#"><li>Contact</li></a>
+                </ul>
+            </div>
+            <div class="flex gap-2">
+
+            <div class="navbar-start sm:hidden block">
+                <div class="dropdown">
+                  <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                  </div>
+                  <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 font-medium text-gray-500 w-28 p-2 shadow">
+                    <li><a>Home</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Content</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="px-4 py-3 rounded-full border-2 border-slate-200">
+                <i class="fa-regular fa-user"></i>
+            </div>
+              </div>
+        </nav>
+
+        <!-- Banner Start -->
+         <div class="w-4/5 mx-auto flex flex-col space-y-5">
+            <div class="lg:w-3/4 mx-auto lg:pl-16 flex flex-col text-center space-y-7">
+                
+         <span class="lg:text-2xl text-xl font-bold text-gray-500">Bringing Families Together ❤️‍🔥</span>
+           <span class="lg:text-7xl text-4xl font-bold">Your Path to Adoption <br> Starts Here</span>
+
+           <p class="font-medium text-gray-600">Here are the content of this page is pets. Then like to buy pets.It is a best page for you to deal.First view and see details,when you would like to deal select one more as your wish.</p>
+
+           <div>
+               <a href="#main">
+               <button class="btn bg-btnPrimary text-white font-bold rounded-xl px-7">View More</button>
+            </a>
+           </div>
+            </div>
+
+            <div class="mx-auto pt-8">
+                <img src="images/pet.webp" alt="Image of a Dog and a Cat">
+            </div>
+         </div>
+    </header>
+
+    <main id="main">
+        
+    </main>
+</body>
+</html>
