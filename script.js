@@ -12,17 +12,18 @@ const displayAllPets = (pets) => {
    const petsContainer = document.getElementById('all-pets-container');
 
    pets.forEach(pet => {
-    console.log(pet);
     const div = document.createElement('div');
     div.innerHTML = `
             <div class="border border-gray-400 rounded-xl p-6 space-y-3">
-                <img class="rounded-lg w-full" src=${pet.image}/>
+            <div class="h-40">
+            <img class="rounded-lg w-full h-full object-cover" src=${pet.image}/>
+            </div>
                     <h3 class="font-fontInter text-xl font-bold">${pet.pet_name}</h3>
                     <div class="space-y-2 text-gray-500 font-medium">
-                      <p>Breed: ${pet?.breed || "Unknown"}</p>
-                      <p><i class="fa-regular fa-calendar"></i> Birth: ${pet?.date_of_birth || "Unknown"}</p>
-                      <p><i class="fa-solid fa-mercury"></i> Gender: ${pet?.gender || "Unknown"}</p>
-                      <p><i class="fa-solid fa-dollar-sign"></i> Price: ${pet?.price || "Unknown"}</p>
+                      <p><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "Unknown"}</p>
+                      <p><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "Unknown"}</p>
+                      <p><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "Unknown"}</p>
+                      <p><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "Unknown"}</p>
                     </div>
 
                     <hr class="bg-gray-300">
@@ -43,9 +44,24 @@ const displayAllPets = (pets) => {
 
 /* Load Image */
 
-const loadImage = async(images) => {
-    
-}
+const loadImage = (image) => {
+    const addImage = document.getElementById('add-pet');
+
+   const div = document.createElement('div');
+   div.classList.add('h-32');
+   div.innerHTML = `
+   <img class="h-full rounded-lg" src=${image}/>
+   `
+   addImage.appendChild(div);
+};
+
+// /* Category Content */
+
+// const controlCategoryContent = (category) => {
+//   const allPetsContainer = document.getElementById('all-pets-container');
+//   const categoryContainer = document.getElementById('categories').innerText;
+//   allPetsContainer.appendChild(categoryContainer);
+// };
 
 /* Load Categories */
 
@@ -61,9 +77,10 @@ const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories');
 
     categories.forEach(category => {
+      console.log(category);
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
-        <button class="py-4 px-14 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
+        <button onclick="controlCategoryContent('${category.category}')" class="py-4 px-14 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
          <img class="w-12" src=${category.category_icon}/>
          <p class="text-2xl">${category.category}</p>
         </button>
