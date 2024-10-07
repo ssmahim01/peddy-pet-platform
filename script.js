@@ -60,15 +60,14 @@ const displayAllPets = (pets) => {
                     <hr class="bg-gray-300">
 
                     <div class="flex justify-between">
-                  <button onclick="loadImage('${pet.image}')" class="py-2 px-4 border border-slate-400 rounded-lg"><i class="fa-regular fa-thumbs-up text-2xl"></i></button>
+                  <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
 
-                  <button onclick="loadAdopt()" class="py-2 px-4 border border-slate-400 rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
+                  <button onclick="loadAdopt()" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
 
-                  <button onclick="loadDetailsPet('${pet.petId}')" class="py-2 px-4 border border-slate-400 rounded-lg text-btnPrimary text-lg font-bold">Details</button>
+                  <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
                     </div>
                   </div>
     `
-
     petsContainer.appendChild(div);
    });
 };
