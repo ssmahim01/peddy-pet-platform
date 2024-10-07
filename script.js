@@ -59,10 +59,10 @@ const displayAllPets = (pets) => {
               </div>
                       <h3 class="font-fontInter text-xl font-bold">${pet.pet_name}</h3>
                       <div class="space-y-2 text-gray-500 font-medium">
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "N/A"}$</p>
                       </div>
   
                       <hr class="bg-gray-300">
@@ -70,7 +70,7 @@ const displayAllPets = (pets) => {
                       <div class="flex justify-between">
                     <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
   
-                    <button onclick="loadAdopt()" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
+                    <button onclick="loadAdopt(this)" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
   
                     <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
                       </div>
@@ -152,7 +152,6 @@ const loadDetailsPet = async(petId) => {
 /* Display details of Pet */
 
 const displayPetDetails = (petData) => {
-  console.log(petData);
   const contentOfModal = document.getElementById('show-content');
 
   contentOfModal.innerHTML = `
@@ -163,13 +162,13 @@ const displayPetDetails = (petData) => {
           <h3 class="text-xl font-fontInter font-extrabold pt-3">${petData.pet_name}</h3>
                 <div class="flex flex-row sm:gap-5 gap-3 text-gray-500 font-medium">
                       <div class="space-y-2">
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${petData?.breed || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${petData?.gender || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Vaccinated Status: ${petData?.vaccinated_status || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${petData?.breed || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${petData?.gender || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Vaccinated Status: ${petData?.vaccinated_status || "N/A"}</p>
                       </div>
                       <div class="space-y-2">
-                       <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${petData?.date_of_birth || "Unknown"}</p>
-                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "Unknown"}</p>
+                       <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${petData?.date_of_birth || "N/A"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "N/A"}$</p>
                       </div>
                     </div>
 
@@ -183,6 +182,52 @@ const displayPetDetails = (petData) => {
                   `;
 
                   document.getElementById('showDetails').showModal();
+};
+
+/* Sort Price */
+
+// const sortByPrice = document.getElementById('sort-price');
+// sortByPrice.addEventListener('click', function(){
+// sortByPrice.sort((a, b) => b.price - a.price);
+//   displayAllPets();
+// });
+
+/* Load Adopt */
+
+const loadAdopt = (btn) => {
+  const showModal = document.getElementById('show-modal-content');
+  showModal.innerHTML = `
+  <div class="flex flex-col justify-center items-center gap-3 py-8">
+  <div class="w-52 h-40">
+  <img class="w-full h-full" src="images/congratulation.png"/>
+  </div>
+    <h3 class="text-5xl font-extrabold">Congrats</h3>
+    <p class="opacity-80 font-semibold text-xl">Adoption Process is Start For Your Pet</p>
+    <h2 id="countDown" class="text-6xl font-black"></h2>
+  </div>
+  `
+
+  btn.classList.add('disabled');
+  btn.disabled = true;
+  let count = 4;
+  let intervalId = setInterval(() => {
+    count--;
+    let countDown = document.getElementById('countDown').innerText = `${count}`;
+    if(count < 0){
+      btn.classList.remove('text-btnPrimary');
+      btn.classList.add('text-gray-400');
+      btn.classList.add('mx-2');
+      clearInterval(intervalId);
+      btn.innerText = 'Adopted';
+      return countDown;
+    }
+  }, 1000);
+
+  document.getElementById('showModalDetails').showModal();
+
+  setTimeout(() => {
+    document.getElementById('showModalDetails').close();
+  }, 4000);
 };
 
 loadAllPets();
