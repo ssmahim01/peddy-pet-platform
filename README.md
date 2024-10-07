@@ -1,12 +1,12 @@
-**Project Name =>**
+**Project Name ->**
 
 ***Peddy - The Pet Adoption Platform***
 
-**Short Description =>**
+**Short Description ->**
 
 ***In this browser anyone can see even will adopt any pet as their choice. It is a pet adoption platform, where you would like to see any kinds of pets with see the details then want to Adopt.***
 
-**5 Key features of the Project =>**
+**5 Key features of the Project ->**
 
 ***1.Asynchronous Programming:*** Using techniques such as promises and **async/await** to handle non-blocking operations like fetching data from an **API,** handling user inputs or processing tasks in the background.
 
@@ -18,7 +18,7 @@
 
 ***5.API:*** **API(Application Programming Interface)** are often considered key features of many projects.It enable applications to connect and interact with external services or platforms, allowing developers to incorporate additional functionality without building everything from scratch.
 
-**ES6 Features Used =>**
+**ES6 Features Used ->**
 
 ***1.let and const:***
 
@@ -33,6 +33,6 @@
 
 **Template Literals** allow embedding expressions inside **strings** and provide multi-line **string** support.
 
-**Live link to the deploy Project,where you click to view the live of this Project =>**
+**Live link to the deploy Project,where you click to view the live of this Project ->**
 
 ***Live Link:*** https://peddy-platform.netlify.app/
