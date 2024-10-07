@@ -20,56 +20,65 @@ const loadAllPets = async() => {
 
 const displayAllPets = (pets) => {
    const petsContainer = document.getElementById('all-pets-container');
+   let loadingSpinner = document.getElementById('spinner1');
+   let secondColumn = document.getElementById('second-column');
+   secondColumn.classList.add('hidden');
+
+   loadingSpinner.classList.remove('hidden');
    petsContainer.innerHTML = "";
 
-   if(pets.length == 0){
-    petsContainer.classList.remove('grid');
-    petsContainer.innerHTML = `
-    <div class="bg-bgError rounded-3xl">
-    <div class="sm:w-4/5 w-11/12 mx-auto flex flex-col justify-center items-center gap-6 sm:py-24 py-20">
-    <div>
-    <img src="images/error.webp" alt="Image of Error"/>
-    </div>
-    <div class="text-center space-y-3">
-    <h2 class="font-fontInter text-2xl sm:text-4xl font-bold">No Information Available</h2>
-    <p class="text-gray-500 font-medium lg:text-base text-sm">No contents or information available in here. Find another then deal or view, We have cute and best pets in here. Thanks for read this description.</p>
-    </div>
-    </div>
-   </div>
-    `
-    return;
-   }else{
-    petsContainer.classList.add('grid');
-   }
+   setTimeout(() => {
+    secondColumn.classList.remove('hidden');
+    loadingSpinner.classList.add('hidden');
 
-   pets.forEach(pet => {
-    const div = document.createElement('div');
-    div.innerHTML = `
-            <div class="border border-opacity-80 rounded-xl p-6 space-y-3">
-            <div class="lg:h-40">
-            <img class="rounded-lg w-full h-full object-cover" src=${pet.image}/>
-            </div>
-                    <h3 class="font-fontInter text-xl font-bold">${pet.pet_name}</h3>
-                    <div class="space-y-2 text-gray-500 font-medium">
-                      <p><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "Unknown"}</p>
-                      <p><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "Unknown"}</p>
-                      <p><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "Unknown"}</p>
-                      <p><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "Unknown"}</p>
+    if(pets.length == 0){
+      petsContainer.classList.remove('grid');
+      petsContainer.innerHTML = `
+      <div class="bg-bgError rounded-3xl">
+      <div class="sm:w-4/5 w-11/12 mx-auto flex flex-col justify-center items-center gap-6 sm:py-24 py-20">
+      <div>
+      <img src="images/error.webp" alt="Image of Error"/>
+      </div>
+      <div class="text-center space-y-3">
+      <h2 class="font-fontInter text-2xl sm:text-4xl font-bold">No Information Available</h2>
+      <p class="text-gray-500 font-medium lg:text-base text-sm">No contents or information available in here. Find another then deal or view, We have cute and best pets in here. Thanks for read this description.</p>
+      </div>
+      </div>
+     </div>
+      `
+      return;
+  }else{
+      petsContainer.classList.add('grid');
+}
+    pets.forEach(pet => {
+      const div = document.createElement('div');
+      div.innerHTML = `
+              <div class="border border-opacity-80 rounded-xl p-6 space-y-3">
+              <div class="lg:h-40">
+              <img class="rounded-lg w-full h-full object-cover" src=${pet.image}/>
+              </div>
+                      <h3 class="font-fontInter text-xl font-bold">${pet.pet_name}</h3>
+                      <div class="space-y-2 text-gray-500 font-medium">
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "Unknown"}</p>
+                      </div>
+  
+                      <hr class="bg-gray-300">
+  
+                      <div class="flex justify-between">
+                    <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
+  
+                    <button onclick="loadAdopt()" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
+  
+                    <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
+                      </div>
                     </div>
-
-                    <hr class="bg-gray-300">
-
-                    <div class="flex justify-between">
-                  <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
-
-                  <button onclick="loadAdopt()" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
-
-                  <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
-                    </div>
-                  </div>
-    `
-    petsContainer.appendChild(div);
-   });
+      `
+      petsContainer.appendChild(div);
+    });
+  }, 3000);
 };
 
 /* Load Image */
@@ -78,9 +87,9 @@ const loadImage = (image) => {
     const addImage = document.getElementById('add-pet');
 
    const div = document.createElement('div');
-   div.classList.add('h-32');
+   div.classList.add('lg:h-32', 'w-full');
    div.innerHTML = `
-   <img class="h-full rounded-lg" src=${image}/>
+   <img class="w-full h-full rounded-lg" src=${image}/>
    `
    addImage.appendChild(div);
 };
@@ -98,7 +107,8 @@ const loadCategories = async() =>{
 const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories');
 
-    categories.forEach(category => {
+    setTimeout(() => {
+      categories.forEach(category => {
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
         <button onclick="controlCategoryContent('${category.category}')" class="btn-category py-4 lg:px-[92px] md:px-16 px-5 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
@@ -108,7 +118,7 @@ const displayCategories = (categories) => {
         `
         categoriesContainer.appendChild(newDiv);
     });
-
+    }, 3000);
 };
 
 /* Control category Content */
@@ -151,15 +161,15 @@ const displayPetDetails = (petData) => {
       <img class="w-full rounded-lg h-full" src=${petData.image}/>
       </div>
           <h3 class="text-xl font-fontInter font-extrabold pt-3">${petData.pet_name}</h3>
-                <div class="flex flex-row sm:gap-5 gap-2 text-gray-500 font-medium">
+                <div class="flex flex-row sm:gap-5 gap-3 text-gray-500 font-medium">
                       <div class="space-y-2">
-                        <p><i class="fa-solid fa-qrcode"></i>  Breed: ${petData?.breed || "Unknown"}</p>
-                        <p><i class="fa-solid fa-mercury"></i>  Gender: ${petData?.gender || "Unknown"}</p>
-                        <p><i class="fa-regular fa-calendar"></i>  Vaccinated Status: ${petData?.vaccinated_status || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${petData?.breed || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${petData?.gender || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Vaccinated Status: ${petData?.vaccinated_status || "Unknown"}</p>
                       </div>
                       <div class="space-y-2">
-                       <p><i class="fa-regular fa-calendar"></i>  Birth: ${petData?.date_of_birth || "Unknown"}</p>
-                        <p><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "Unknown"}</p>
+                       <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${petData?.date_of_birth || "Unknown"}</p>
+                        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "Unknown"}</p>
                       </div>
                     </div>
 
