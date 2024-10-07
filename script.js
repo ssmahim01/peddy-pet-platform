@@ -201,7 +201,7 @@ const loadAdopt = (btn) => {
   <div class="w-52 h-40">
   <img class="w-full h-full" src="images/congratulation.png"/>
   </div>
-    <h3 class="text-5xl font-extrabold">Congrats</h3>
+    <h3 class="text-6xl font-extrabold">Congrats</h3>
     <p class="opacity-80 font-semibold text-xl">Adoption Process is Start For Your Pet</p>
     <h2 id="countDown" class="text-6xl font-black"></h2>
   </div>
