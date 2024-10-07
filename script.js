@@ -1,3 +1,13 @@
+/* Go to Best Friend Section */
+
+const viewBtn = document.querySelector('#viewBtn');
+viewBtn.addEventListener('click', function(){
+  const bestFriendContent = document.getElementById('best-friend');
+  bestFriendContent.scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
 /* Load all Pets */
 
 const loadAllPets = async() => {
@@ -10,11 +20,32 @@ const loadAllPets = async() => {
 
 const displayAllPets = (pets) => {
    const petsContainer = document.getElementById('all-pets-container');
+   petsContainer.innerHTML = "";
+
+   if(pets.length == 0){
+    petsContainer.classList.remove('grid');
+    petsContainer.innerHTML = `
+    <div class="bg-bgError rounded-3xl">
+    <div class="sm:w-4/5 w-11/12 mx-auto flex flex-col justify-center items-center gap-6 sm:py-24 py-20">
+    <div>
+    <img src="images/error.webp" alt="Image of Error"/>
+    </div>
+    <div class="text-center space-y-3">
+    <h2 class="font-fontInter text-2xl sm:text-4xl font-bold">No Information Available</h2>
+    <p class="text-gray-500 font-medium lg:text-base text-sm">No contents or information available in here. Find another then deal or view, We have cute and best pets in here. Thanks for read this description.</p>
+    </div>
+    </div>
+   </div>
+    `
+    return;
+   }else{
+    petsContainer.classList.add('grid');
+   }
 
    pets.forEach(pet => {
     const div = document.createElement('div');
     div.innerHTML = `
-            <div class="border border-gray-400 rounded-xl p-6 space-y-3">
+            <div class="border border-opacity-80 rounded-xl p-6 space-y-3">
             <div class="lg:h-40">
             <img class="rounded-lg w-full h-full object-cover" src=${pet.image}/>
             </div>
@@ -55,14 +86,6 @@ const loadImage = (image) => {
    addImage.appendChild(div);
 };
 
-// /* Category Content */
-
-// const controlCategoryContent = (category) => {
-//   const allPetsContainer = document.getElementById('all-pets-container');
-//   const categoryContainer = document.getElementById('categories').innerText;
-//   allPetsContainer.appendChild(categoryContainer);
-// };
-
 /* Load Categories */
 
 const loadCategories = async() =>{
@@ -79,15 +102,34 @@ const displayCategories = (categories) => {
     categories.forEach(category => {
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
-        <button onclick="controlCategoryContent('${category.category}')" class="py-4 lg:px-20 md:px-16 px-5 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
-         <img class="w-12" src=${category.category_icon}/>
-         <p class="text-2xl">${category.category}</p>
+        <button onclick="controlCategoryContent('${category.category}')" class="btn-category py-4 lg:px-[92px] md:px-16 px-5 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
+         <img class="sm:w-12 w-10" src=${category.category_icon}/>
+         <p class="sm:text-2xl text-xl">${category.category}</p>
         </button>
         `
         categoriesContainer.appendChild(newDiv);
     });
 
 };
+
+/* Control category Content */
+
+const controlCategoryContent = (id) => {
+ fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+
+ .then(response => response.json())
+ .then(data => displayAllPets(data.data))
+};
+
+// /* Remove Active */
+
+// const removeActive = () => {
+//   const categoryButtons = document.getElementsByClassName('btn-category');
+
+//   categoryButtons.forEach(button => {
+//     button.classList.remove('active');
+//   });
+// };
 
 /* Load details of Pet */
 
@@ -97,6 +139,8 @@ const loadDetailsPet = async(petId) => {
   const data = await res.json();
   displayPetDetails(data.petData);
 };
+
+/* Display details of Pet */
 
 const displayPetDetails = (petData) => {
   console.log(petData);

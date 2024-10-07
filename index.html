@@ -26,6 +26,7 @@
                colors: {
                  clifford: '#da373d',
                  btnPrimary: 'rgb(14, 122, 129)',
+                 bgError: 'rgba(19, 19, 19, 0.03)',
                },
                fontFamily: {
              fontLato: 'Lato',
@@ -38,6 +39,14 @@
 
        <!-- Font Awesome -->
        <script src="https://kit.fontawesome.com/688e7a57b2.js" crossorigin="anonymous"></script>
+
+       <!-- Active button styles -->
+       <!-- <style>
+        .active{
+          background-color: rgba(14, 122, 129, 0.1);
+          border: 2px solid rgb(14, 122, 129);
+        }
+       </style> -->
 </head>
 <body class="font-fontLato">
     <header>
@@ -99,9 +108,7 @@
            <p class="font-medium text-gray-600">Here are the content of this page is pets. Then like to buy pets.It is a best page for you to deal.First view and see details,when you would like to deal select one more as your wish.</p>
 
            <div>
-               <a href="#main">
-               <button class="btn bg-btnPrimary text-white font-bold rounded-xl px-7">View More</button>
-            </a>
+               <button id="viewBtn" class="btn bg-btnPrimary text-white font-bold rounded-xl px-7">View More</button>
            </div>
             </div>
 
@@ -111,9 +118,9 @@
          </div>
     </header>
 
-    <main id="main">
+    <main>
         <!-- Best Friend Section -->
-         <section class="w-11/12 mx-auto py-10">
+         <section class="w-11/12 mx-auto py-10" id="best-friend">
             <div class="lg:w-1/2 w-11/12 mx-auto text-center space-y-5">
              <h2 class="sm:text-4xl text-3xl font-bold">Adopt Your Best Friend</h2>
             <p class="text-gray-500 font-medium">Suppose, A Pet is your friend. Because, they are very cute and always love their owner and follow as anything want their owner.The cutest pets in here, Adopt as your wish.</p>
@@ -127,8 +134,8 @@
 
          <!-- Deal Section -->
           <section class="sm:w-5/6 w-11/12 mx-auto">
-            <div class="flex justify-between">
-              <h4 class="text-2xl font-extrabold">Best Deal For You</h4>
+            <div class="flex justify-between items-center">
+              <h4 class="sm:text-2xl text-xl font-extrabold">Best Deal For You</h4>
               <button id="sort-price" class="bg-btnPrimary rounded-xl px-7 btn text-white font-bold">Sort by Price</button>
             </div>
 
@@ -153,7 +160,9 @@
               </div>
             </dialog>
               </div>
-              <div class="lg:mt-0 mt-7 lg:col-span-3 border border-gray-400 rounded-xl p-5">
+
+              <!-- Right side Content -->
+              <div class="lg:mt-0 mt-7 lg:col-span-3 border border-opacity-80 rounded-xl p-5">
                 <div id="add-pet" class="grid grid-cols-2 gap-4">
 
                 </div>
