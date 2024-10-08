@@ -1,3 +1,7 @@
+/* Global Variable */
+
+let urlApi = 'https://openapi.programming-hero.com/api/peddy/pets';
+
 /* Go to Best Friend Section */
 
 const viewBtn = document.querySelector('#viewBtn');
@@ -11,7 +15,7 @@ viewBtn.addEventListener('click', function(){
 /* Load all Pets */
 
 const loadAllPets = async() => {
-    const response = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
+    const response = await fetch(urlApi);
     const data = await response.json();
     displayAllPets(data.pets);
 };
@@ -53,7 +57,7 @@ const displayAllPets = (pets) => {
     pets.forEach(pet => {
       const div = document.createElement('div');
       div.innerHTML = `
-      <div class="border border-opacity-80 rounded-xl p-6 space-y-3">
+      <div class="border border-opacity-80 rounded-xl sm:p-6 p-5 space-y-3">
       <div class="lg:h-40">
       <img class="rounded-lg w-full h-full object-cover" src=${pet.image}/>
       </div>
@@ -62,17 +66,17 @@ const displayAllPets = (pets) => {
           <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${pet?.breed || "N/A"}</p>
           <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${pet?.date_of_birth || "N/A"}</p>
           <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${pet?.gender || "N/A"}</p>
-          <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "N/A"}$</p>
+          <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${pet?.price || "N/A"}</p>
         </div>
 
         <hr class="bg-gray-300">
 
         <div class="flex justify-between">
-      <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
+      <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
 
-      <button onclick="loadAdopt(this)" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
+      <button onclick="loadAdopt(this)" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
 
-      <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-6 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
+      <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
         </div>
       </div>
       `
@@ -194,7 +198,7 @@ const displayPetDetails = (petData) => {
 /* Sort Price */
 
 const sortPrice = async() => {
-  const fetchUrl = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
+  const fetchUrl = await fetch(urlApi);
   const data = await fetchUrl.json();
   // console.log(data.pets);
 
