@@ -38,7 +38,7 @@ Modals are used to display information or **prompt** the user for input without 
 
 <b>1.let and const:</b>
 
-**let:** Used to declare block-scoped variables.
+**let:** Used to declare block-scoped variables. <br>
 **const:** Used to declare variables that cannot be reassigned.It is also block-scoped.
 
 <b>2.Arrow Functions:</b> 

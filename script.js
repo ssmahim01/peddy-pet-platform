@@ -106,12 +106,11 @@ const loadCategories = async() =>{
 
 const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories');
-
     setTimeout(() => {
       categories.forEach(category => {
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
-        <button onclick="controlCategoryContent('${category.category}')" class="btn-category py-4 lg:px-[92px] md:px-16 px-5 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary">
+        <button onclick="controlCategoryContent('${category.category}')" class="btn-category py-4 lg:px-[92px] md:px-16 px-5 rounded-2xl border border-slate-200 font-fontInter font-bold flex gap-4 items-center hover:rounded-full hover:bg-slate-200 hover:border-2 hover:border-btnPrimary" id="btn-${category.id}">
          <img class="sm:w-12 w-10" src=${category.category_icon}/>
          <p class="sm:text-2xl text-xl">${category.category}</p>
         </button>
@@ -127,18 +126,23 @@ const controlCategoryContent = (id) => {
  fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
 
  .then(response => response.json())
- .then(data => displayAllPets(data.data))
+ .then(data => {
+  // removeActive();
+  // const activeBtn = document.getElementById(`btn-${id}`);
+  // activeBtn.classList.add('active');
+  displayAllPets(data.data);
+})
+  .catch(error => console.log(error))
 };
 
-// /* Remove Active */
+/* Remove Active */
 
-// const removeActive = () => {
-//   const categoryButtons = document.getElementsByClassName('btn-category');
-
-//   categoryButtons.forEach(button => {
-//     button.classList.remove('active');
-//   });
-// };
+const removeActive = () => {
+  const buttons = document.getElementsByClassName('btn-category');
+  for(const btn of buttons){
+    btn.classList.remove('active');
+  }
+};
 
 /* Load details of Pet */
 
@@ -186,11 +190,15 @@ const displayPetDetails = (petData) => {
 
 /* Sort Price */
 
-// const sortByPrice = document.getElementById('sort-price');
-// sortByPrice.addEventListener('click', function(){
-// sortByPrice.sort((a, b) => b.price - a.price);
-//   displayAllPets();
-// });
+const sortPrice = async() => {
+  const fetchUrl = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
+  const data = await fetchUrl.json();
+  // console.log(data.pets);
+
+  const pets = data.pets;
+  pets.sort((a, b) => b.price - a.price)
+  displayAllPets(pets);
+};
 
 /* Load Adopt */
 
