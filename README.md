@@ -12,25 +12,23 @@ In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their ch
 
 ***5 Key features of the Project ->***
 
-<b>1.Asynchronous Programming:</b>
- 
-Using techniques such as promises and **async/await** to handle non-blocking operations like fetching data from an **API,** handling user inputs or processing tasks in the background.
+<b>1.Fetch data from API(Application Programming Interface) then display all items.</b>
 
-<b>2.Responsive design and User Experience(UX):</b>
+<br>
 
-Ensuring that the **UI** of the Project is adaptive to different screen sizes and orientations. This is often achieved using **CSS** and **JS** to dynamically adjust layouts, components and content for various devices.
+<b>2.Using maximum times the forEach() Method.</b>
 
-<b>3.Version Control:</b>
+<br>
 
-Using Version control systems like **Git** to manage code versions, collaborate with other developers and maintain a history of code changes.
+<b>3.Using sort() Method for compare price of items from array of objects.</b>
 
-<b>4.Modal:</b> 
+<br>
 
-Modals are used to display information or **prompt** the user for input without navigating away from the current page.
+<b>4.Using Conditional Statement(if, else) to perform different actions based on different conditions.</b>
 
-<b>5.API:</b> 
+<br>
 
-**API(Application Programming Interface)** are often considered key features of many projects.It enable applications to connect and interact with external services or platforms, allowing developers to incorporate additional functionality without building everything from scratch.
+<b>5.Using appendChild() for add new element inside of parent element.</b>
 
 <hr>
 
@@ -48,6 +46,10 @@ Modals are used to display information or **prompt** the user for input without 
 <b>3.Template Literals:</b>
 
 **Template Literals** allow embedding expressions inside **strings** and provide multi-line **string** support.
+
+<b>4.For/Of loop</b>
+
+**For/Of** loop used to convert multi-items to single, Maintain serials of values or contents in the loop.We can use this and easily get single item.
 
 <hr>
 
