@@ -12,23 +12,15 @@ In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their ch
 
 ***5 Key features of the Project ->***
 
-<b>1.Fetch data from API(Application Programming Interface) then display all items.</b>
-
+1.<b>Fetch</b> data from <b>API(Application Programming Interface)</b> then display all items.</b>
 <br>
-
-<b>2.Using maximum times the forEach() Method.</b>
-
+2.Using maximum times the <b>forEach()</b> Method.
 <br>
-
-<b>3.Using sort() Method for compare price of items from array of objects.</b>
-
+3.Using <b>sort()</b> Method for compare price of items from array of objects.
 <br>
-
-<b>4.Using Conditional Statement(if, else) to perform different actions based on different conditions.</b>
-
+4.Using <b>Conditional Statement(if, else)</b> to perform different actions based on different conditions.</b>
 <br>
-
-<b>5.Using appendChild() for add new element inside of parent element.</b>
+5.Using <b>appendChild()</b> for add new element inside of parent element.</b>
 
 <hr>
 
