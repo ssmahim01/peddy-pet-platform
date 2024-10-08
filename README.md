@@ -1,10 +1,12 @@
 **Project Name ->**
 
 ***Peddy - The Pet Adoption Platform***
+_____________________________________________________________________________________
 
 **Short Description ->**
 
 ***In this browser anyone can see even will adopt any pet as their choice. It is a pet adoption platform, where you would like to see any kinds of pets with see the details then want to Adopt.***
+_____________________________________________________________________________________
 
 **5 Key features of the Project ->**
 
@@ -17,6 +19,7 @@
 ***4.Modal:*** Modals are used to display information or **prompt** the user for input without navigating away from the current page.
 
 ***5.API:*** **API(Application Programming Interface)** are often considered key features of many projects.It enable applications to connect and interact with external services or platforms, allowing developers to incorporate additional functionality without building everything from scratch.
+_____________________________________________________________________________________
 
 **ES6 Features Used ->**
 
@@ -32,6 +35,7 @@
 ***3.Template Literals:***
 
 **Template Literals** allow embedding expressions inside **strings** and provide multi-line **string** support.
+_____________________________________________________________________________________
 
 **Live link to the deploy Project,where you click to view the live of this Project ->**
 
