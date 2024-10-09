@@ -45,6 +45,7 @@ In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their ch
 
 <hr>
 
-<h2>Live link to the deploy Project,where you click to view the live of this Project -></h2>
+<h2>Live link to the deploy Project,<br>
+Where you click to view the live of this Project -></h2>
 
 <b>Live Link:</b> https://peddy-platform.netlify.app/
