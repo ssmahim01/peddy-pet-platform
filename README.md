@@ -1,16 +1,16 @@
-***Project Name ->***
+<h2>Project Name -></h2>
 
 <b>Peddy - The Pet Adoption Platform</b>
 
 <hr>
 
-***Short Description ->***
+<h2>Short Description -></h2>
 
 In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their choice. It is a pet adoption platform, where you would like to see any kinds of pets with see the details then want to <b>Adopt.</b>
 
 <hr>
 
-***5 Key features of the Project ->***
+<h2>5 Key features of the Project -></h2>
 
 1.<b>Fetch</b> data from <b>API(Application Programming Interface)</b> then display all items.</b>
 <br>
@@ -24,7 +24,7 @@ In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their ch
 
 <hr>
 
-***ES6 Features Used ->***
+<h2>ES6 Features Used -></h2>
 
 <b>1.let and const:</b>
 
@@ -45,6 +45,6 @@ In this browser anyone can see even will <b>adopt</b> any <b>pet</b> as their ch
 
 <hr>
 
-***Live link to the deploy Project,where you click to view the live of this Project ->***
+<h2>Live link to the deploy Project,where you click to view the live of this Project -></h2>
 
 <b>Live Link:</b> https://peddy-platform.netlify.app/
