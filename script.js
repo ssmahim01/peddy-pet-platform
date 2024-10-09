@@ -1,7 +1,8 @@
-/* Global Variable */
+/* Global Variables */
 
 let urlApi = 'https://openapi.programming-hero.com/api/peddy/pets';
-let categoryData;
+// let categoryData;
+let loadData = [];
 
 /* Go to Best Friend Section */
 
@@ -19,6 +20,7 @@ const loadAllPets = async() => {
     const response = await fetch(urlApi);
     const data = await response.json();
     displayAllPets(data.pets);
+    loadData = data.pets;
 };
 
 /* Display All Pets */
@@ -125,11 +127,12 @@ const displayCategories = (categories) => {
 
 /* Control category Content */
 const controlCategoryContent = async(category ,id) => {
-  categoryData = category;
+  // categoryData = category;
  const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
 
  const data = await response.json();
  displayAllPets(data.data);
+ loadData = data.data;
 
   removeActive();
   const activeBtn = document.getElementById(`btn-${id}`);
@@ -197,10 +200,10 @@ const displayPetDetails = (petData) => {
 /* Sort Price */
 
 const sortPrice = async() => {
-  const fetchUrl1 = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryData}`);
-  const data = await fetchUrl1.json();
-  const pets = data.data;
-  let sortedPets = pets.sort((a, b) => b.price - a.price)
+  // const fetchUrl1 = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryData}`);
+  // const data = await fetchUrl1.json();
+  // const pets = data.data;
+  let sortedPets = loadData.sort((a, b) => b.price - a.price)
   displayAllPets(sortedPets);
 };
 
