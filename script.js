@@ -82,7 +82,7 @@ const displayAllPets = (pets) => {
       `
       petsContainer.appendChild(div);
     });
-  }, 3000);
+  }, 2000);
 };
 
 /* Load Image */
@@ -121,7 +121,7 @@ const displayCategories = (categories) => {
         `
         categoriesContainer.appendChild(newDiv);
     });
-    }, 3000);
+    }, 2000);
 };
 
 /* Control category Content */
@@ -179,7 +179,7 @@ const displayPetDetails = (petData) => {
       </div>
       <div class="space-y-2">
         <p class="flex gap-2 items-center"><i class="fa-regular fa-calendar"></i>  Birth: ${petData?.date_of_birth || "N/A"}</p>
-        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "N/A"}$</p>
+        <p class="flex gap-2 items-center"><i class="fa-solid fa-dollar-sign"></i>  Price: ${petData?.price || "N/A"}</p>
       </div>
     </div>
 
@@ -219,7 +219,7 @@ const loadAdopt = (btn) => {
   <img class="w-full h-full" src="images/congratulation.png"/>
   </div>
     <h3 class="text-6xl font-extrabold">Congrats</h3>
-    <p class="opacity-80 font-semibold text-xl">Adoption Process is Start For Your Pet</p>
+    <p class="opacity-80 font-semibold text-xl text-center">Adoption Process is Start For Your Pet</p>
     <h2 id="countDown" class="text-6xl font-black"></h2>
   </div>
   `
