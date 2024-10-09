@@ -1,6 +1,7 @@
 /* Global Variable */
 
 let urlApi = 'https://openapi.programming-hero.com/api/peddy/pets';
+let categoryData;
 
 /* Go to Best Friend Section */
 
@@ -110,7 +111,6 @@ const loadCategories = async() =>{
 
 const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories');
-    setTimeout(() => {
       categories.forEach(category => {
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
@@ -121,12 +121,11 @@ const displayCategories = (categories) => {
         `
         categoriesContainer.appendChild(newDiv);
     });
-    }, 2000);
 };
 
 /* Control category Content */
-
 const controlCategoryContent = async(category ,id) => {
+  categoryData = category;
  const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
 
  const data = await response.json();
@@ -167,11 +166,11 @@ const displayPetDetails = (petData) => {
 
   contentOfModal.innerHTML = `
   <div class="space-y-4">
-    <div class="space-y-3 w-full h-64">
+    <div class="space-y-3 w-full sm:h-64">
       <img class="w-full rounded-lg h-full" src=${petData.image}/>
       </div>
           <h3 class="text-xl font-fontInter font-extrabold pt-3">${petData.pet_name}</h3>
-    <div class="flex flex-row sm:gap-5 gap-3 text-gray-500 font-medium">
+    <div class="flex sm:flex-row flex-col sm:gap-5 gap-3 text-gray-500 font-medium">
       <div class="space-y-2">
         <p class="flex gap-2 items-center"><i class="fa-solid fa-qrcode"></i>  Breed: ${petData?.breed || "N/A"}</p>
         <p class="flex gap-2 items-center"><i class="fa-solid fa-mercury"></i>  Gender: ${petData?.gender || "N/A"}</p>
@@ -198,15 +197,11 @@ const displayPetDetails = (petData) => {
 /* Sort Price */
 
 const sortPrice = async() => {
-  const fetchUrl = await fetch(urlApi);
-  const data = await fetchUrl.json();
-  // console.log(data.pets);
-
-  const pets = data.pets;
-  pets.sort((a, b) => b.price - a.price)
-  displayAllPets(pets);
-
-  removeActive();
+  const fetchUrl1 = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryData}`);
+  const data = await fetchUrl1.json();
+  const pets = data.data;
+  let sortedPets = pets.sort((a, b) => b.price - a.price)
+  displayAllPets(sortedPets);
 };
 
 /* Load Adopt */
