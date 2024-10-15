@@ -54,8 +54,8 @@
             <div class="hidden sm:block">
                 <ul class="flex gap-4 text-gray-500">
                     <a href="#"><li>Home</li></a>
-                    <a href="#"><li>Shop</li></a>
-                    <a href="#"><li>Contact</li></a>
+                    <a href="#deal"><li>Shop</li></a>
+                    <a href="#footer-info"><li>Contact</li></a>
                 </ul>
             </div>
             <div class="flex gap-2">
@@ -80,16 +80,26 @@
                     tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 font-medium text-gray-500 w-28 p-2 shadow">
                     <li><a>Home</a></li>
-                    <li><a>Shop</a></li>
-                    <li><a>Content</a></li>
+                    <li id="shop"><a>Shop</a></li>
+                    <li id="contact"><a>Content</a></li>
                   </ul>
                 </div>
               </div>
 
-              <div class="px-4 py-3 rounded-full border-2 border-slate-200">
+              <div onclick="showUser()" class="cursor-pointer px-4 py-3 rounded-full border-2 border-slate-200">
                 <i class="fa-regular fa-user"></i>
             </div>
+            <dialog id="userImg" class="modal">
+              <div class="modal-box rounded-full">
+                <div id="modal-user">
+
+                </div>
               </div>
+              <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
+          </div>
         </nav>
 
         <!-- Banner Start -->
@@ -127,7 +137,7 @@
          </section>
 
          <!-- Deal Section -->
-          <section class="sm:w-5/6 w-11/12 mx-auto">
+          <section class="sm:w-5/6 w-11/12 mx-auto" id="deal">
             <div class="flex justify-between items-center">
               <h4 class="sm:text-2xl text-xl font-extrabold">Best Deal For You</h4>
               <button onclick="sortPrice()" class="bg-btnPrimary rounded-xl px-7 btn text-white font-bold">Sort by Price</button>
@@ -185,7 +195,7 @@
             <img src="images/logo.webp" alt="Logo of Peddy">
             <h2 class="font-extrabold text-xl lg:text-3xl">Peddy</h2>
         </div>
-        <div class="flex flex-col font-medium">
+        <div class="flex flex-col font-medium" id="footer-info">
          <span>Location: av. Washington 165 NY CA 54003</span>
          <span>Phone: +31 85 964 47 25</span>
          <span>Email: info@yourdomain.com</span>

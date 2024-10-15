@@ -14,6 +14,38 @@ viewBtn.addEventListener('click', function(){
   });
 });
 
+/* Go to deal Section */
+
+const shop = document.getElementById('shop');
+shop.addEventListener('click', () => {
+  const deal = document.getElementById('deal');
+  deal.scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
+/* Go to Footer Information */
+
+const contact = document.getElementById('contact');
+contact.addEventListener('click', () => {
+  const footerInfo = document.getElementById('footer-info');
+  footerInfo.scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
+/* Show User */
+
+const showUser = () => {
+  const user = document.getElementById('modal-user');
+  user.innerHTML = `
+  <div>
+  <img class="w-full rounded-full" src="images/o-kader.jpg"/>
+  </div>
+  `
+  document.getElementById('userImg').showModal();
+};
+
 /* Load all Pets */
 
 const loadAllPets = async() => {
@@ -75,11 +107,11 @@ const displayAllPets = (pets) => {
         <hr class="bg-gray-300">
 
         <div class="flex justify-between">
-      <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
+      <button onclick="loadImage('${pet.image}')" class="py-1 lg:px-4 md:px-14 px-4 border border-btnBorder rounded-lg"><i class="fa-regular fa-thumbs-up text-xl"></i></button>
 
-      <button onclick="loadAdopt(this)" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
+      <button onclick="loadAdopt(this)" class="py-1 lg:px-4 md:px-14 px-4 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Adopt</button>
 
-      <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-5 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
+      <button onclick="loadDetailsPet('${pet.petId}')" class="py-1 lg:px-4 md:px-14 px-4 border border-btnBorder rounded-lg text-btnPrimary text-lg font-bold">Details</button>
         </div>
       </div>
       `
