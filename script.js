@@ -40,7 +40,7 @@ const showUser = () => {
   const user = document.getElementById('modal-user');
   user.innerHTML = `
   <div>
-  <img class="w-full rounded-full" src="images/o-kader.jpg"/>
+  <img class="w-full rounded-full" src="images/pet.webp"/>
   </div>
   `
   document.getElementById('userImg').showModal();
